@@ -20,6 +20,8 @@ export const Ticket: React.FC = () => {
         } else {
             onCheckInitialData()
         }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [onGetTicket, onCheckInitialData])
 
     return (
