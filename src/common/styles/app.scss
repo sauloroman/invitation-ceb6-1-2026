@@ -27,9 +27,7 @@
 @use '../../modules/invitation/graduates/graduates';
 @use '../../modules/invitation/itinerary/itinerary';
 @use '../../modules/invitation/dress-code/dress-code';
-@use '../../modules/invitation/presents/presents';
-@use '../../modules/invitation/gallery/gallery';
-@use '../../modules/invitation/confirmation/confirmation';
+@use '../../modules/invitation/reminders/reminders';
 
 // Invitation Envelop
 @use '../../modules/envelop/_envelop.scss';

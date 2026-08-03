@@ -70,13 +70,13 @@
     }
 
     &__subtitle {
-        width: 90%;
         font-family: vars.$font-serif;
-        font-size: 1.5rem;
-        font-weight: 400;
-        color: vars.$color-text-600;
-        line-height: 1.6;
-        margin: 0.8rem 0 0 0;
-        max-width: 56rem;
+        font-size: clamp(1.3rem, 4vw, 1.35rem);
+        font-weight: 300;
+        line-height: 1.8;
+        color: vars.$color-text-700;
+        letter-spacing: 0.5px;
+        margin: 0;
+        width: 90%;
     }
 }

@@ -1,7 +1,7 @@
 {
   "theme": {
     "fontPack": 4,
-    "palette": 2,
+    "palette": 9,
     "buttonVariant": "primary",
     "menu": {
       "show": false,

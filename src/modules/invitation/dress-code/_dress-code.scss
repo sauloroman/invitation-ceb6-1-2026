@@ -63,21 +63,24 @@
 
     &__description {
         font-family: vars.$font-serif;
-        font-size: clamp(1rem, 3.2vw, 1.15rem);
+        font-size: clamp(1.3rem, 4vw, 1.35rem);
+        font-weight: 300;
+        line-height: 1.8;
         color: vars.$color-text-700;
-        line-height: 1.65;
+        letter-spacing: 0.5px;
         margin: 0;
-        max-width: 440px;
-        font-weight: 400;
+        width: 90%;
     }
 
     &__note {
         font-family: vars.$font-serif;
-        font-size: clamp(1.2rem, 3vw, 1.05rem);
-        color: vars.$color-primary-700;
-        margin: 0.5rem 0 0 0;
-        line-height: 1.5;
-        max-width: 420px;
+        font-size: clamp(1.3rem, 4vw, 1.35rem);
+        font-weight: 300;
+        line-height: 1.8;
+        color: vars.$color-text-700;
+        letter-spacing: 0.5px;
+        margin: 0;
+        width: 90%;
     }
 }
 
