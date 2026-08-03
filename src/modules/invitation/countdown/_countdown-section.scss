@@ -2,7 +2,7 @@
 @use '../../../common/styles/mixins' as mix;
 
 .countdown-section {
-    padding: 6rem 1.5rem;
+    padding: 6rem 1.5rem 4rem;
     background-color: transparent;
     display: flex;
     justify-content: center;
@@ -22,5 +22,109 @@
         width: 100%;
         display: flex;
         justify-content: center;
+    }
+
+    &__calendar-frame {
+        width: 90%;
+        margin: 2.5rem auto 0;
+        background-size: cover;
+        background-position: center;
+        padding: 14px;
+        box-shadow:
+            0 20px 50px rgba(vars.$color-primary-900, 0.18),
+            0 4px 12px rgba(vars.$color-primary-900, 0.10);
+    }
+
+    &__calendar {
+        background-color: #faf7f2;
+        padding: 2rem 1.4rem 1.8rem;
+        text-align: center;
+
+        &-title {
+            font-family: vars.$font-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.26em;
+            color: vars.$color-primary-900;
+            margin-bottom: 1.6rem;
+            text-transform: uppercase;
+        }
+
+        &-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.6rem 0.1rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        &-head {
+            font-family: vars.$font-sans;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: rgba(vars.$color-primary-900, 0.42);
+            text-transform: lowercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 0.3rem;
+        }
+
+        &-day {
+            position: relative;
+            font-family: vars.$font-sans;
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: vars.$color-primary-900;
+            width: 2.1rem;
+            height: 2.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &--muted {
+                opacity: 0.24;
+            }
+
+            &--featured {
+                font-weight: 700;
+
+                .countdown-section__calendar-num {
+                    position: relative;
+                    z-index: 2;
+                    color: vars.$color-primary-900;
+                    text-shadow: 0 0 8px rgba(vars.$color-4, 0.55);
+                }
+            }
+        }
+
+        &-num {
+            line-height: 1;
+        }
+
+        &-star {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -47%);
+            width: 3rem;
+            height: 3rem;
+            z-index: 1;
+            filter:
+                drop-shadow(0 2px 8px rgba(vars.$color-4, 0.7)) drop-shadow(0 1px 4px rgba(0, 0, 0, 0.25));
+            animation: calendarStarPulse 3s infinite ease-in-out;
+        }
+    }
+}
+
+@keyframes calendarStarPulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -47%) scale(1);
+        filter: drop-shadow(0 2px 8px rgba(199, 165, 70, 0.7)) drop-shadow(0 1px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    50% {
+        transform: translate(-50%, -47%) scale(1.14);
+        filter: drop-shadow(0 4px 14px rgba(199, 165, 70, 0.95)) drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
     }
 }

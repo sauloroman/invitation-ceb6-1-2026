@@ -132,26 +132,95 @@
         margin: 0;
     }
 
-    &__button-classic {
-        font-family: vars.$font-sans;
-        font-size: clamp(0.85rem, 2.5vw, 0.95rem);
-        font-weight: 600;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        padding: 0.9rem 2.2rem;
-        background-color: transparent;
-        border: 1px solid vars.$color-primary-400;
-        color: vars.$color-primary;
-        border-radius: 30px;
-        cursor: pointer;
-        transition: all 0.3s ease;
+    &__ticket-btn-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
         margin-top: 0.4rem;
+    }
 
-        &:hover {
-            background-color: vars.$color-primary;
-            border-color: vars.$color-primary;
-            color: #ffffff;
-            box-shadow: 0 4px 15px rgba(vars.$color-primary, 0.2);
+    &__ticket-btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        padding: 1.1rem 2.6rem;
+        background: linear-gradient(135deg, vars.$color-4, shade(vars.$color-4, 18%));
+        border: none;
+        border-radius: 100rem;
+        cursor: pointer;
+        overflow: hidden;
+        box-shadow:
+            0 4px 18px rgba(vars.$color-4, 0.45),
+            0 2px 8px rgba(0, 0, 0, 0.15);
+        outline: none;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 100rem;
+            background: transparent;
+            border: 2px solid rgba(vars.$color-4, 0.55);
+            animation: ticketPulseRing 2.2s ease-in-out infinite;
         }
+
+        &__shimmer {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                100deg,
+                transparent 20%,
+                rgba(255, 255, 255, 0.22) 50%,
+                transparent 80%
+            );
+            background-size: 200% 100%;
+            animation: ticketShimmer 2.8s linear infinite;
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        &__icon {
+            color: vars.$color-primary-900;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        &__label {
+            font-family: vars.$font-sans;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: vars.$color-primary-900;
+            position: relative;
+            z-index: 1;
+        }
+    }
+}
+
+@keyframes ticketPulseRing {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.25;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+}
+
+@keyframes ticketShimmer {
+    0% {
+        background-position: 200% center;
+    }
+    100% {
+        background-position: -200% center;
     }
 }

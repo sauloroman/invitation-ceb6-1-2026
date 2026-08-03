@@ -8,7 +8,12 @@ import { MapPinIcon } from '@phosphor-icons/react'
 import colagantes from '@/assets/images/icons/colgantes.svg'
 import macetero from '@/assets/images/icons/jarron.svg'
 
-const FLUID_EASE = [0.22, 1, 0.36, 1] as const
+const FLUID_EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
+
+const getCardVariant = (idx: number) => ({
+    initial: { opacity: 0, x: idx % 2 === 0 ? -35 : 35, y: 15 },
+    animate: { opacity: 1, x: 0, y: 0 },
+})
 
 export const PlacesSection: React.FC = () => {
     const { sections } = useInvitationConfig()
@@ -34,17 +39,23 @@ export const PlacesSection: React.FC = () => {
 
     return (
         <>
-            <div className="places-section__colgantes">
+            <motion.div
+                className="places-section__colgantes"
+                initial={{ opacity: 0, y: -25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '0px 0px' }}
+                transition={{ duration: 1.1, delay: 0.2, ease: FLUID_EASE }}
+            >
                 <img src={colagantes} alt="colgantes" />
-            </div>
-            <section id="places" className="places-section">
+            </motion.div>
 
+            <section id="places" className="places-section">
                 <div className="places-section__container">
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: '-10% 0px' }}
-                        transition={{ duration: 1.2, ease: FLUID_EASE }}
+                        transition={{ duration: 1.1, delay: 0.2, ease: FLUID_EASE }}
                     >
                         <SectionHeader
                             pretitle="DÓNDE Y CUÁNDO"
@@ -55,53 +66,65 @@ export const PlacesSection: React.FC = () => {
                     </motion.div>
 
                     <div className="places-section__grid">
+                        {placesConfig.locations.map((loc, idx) => {
+                            const variant = getCardVariant(idx)
+                            return (
+                                <motion.div
+                                    key={idx}
+                                    className="places-item"
+                                    initial={variant.initial}
+                                    whileInView={variant.animate}
+                                    viewport={{ once: true, margin: '-10% 0px' }}
+                                    transition={{ duration: 1.1, delay: 0.35 + idx * 0.22, ease: FLUID_EASE }}
+                                >
+                                    {loc.date && (
+                                        <motion.p
+                                            className="places-item__date"
+                                            initial={{ opacity: 0, scale: 0.85 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            viewport={{ once: true, margin: '-10% 0px' }}
+                                            transition={{ duration: 0.8, delay: 0.5 + idx * 0.22, ease: FLUID_EASE }}
+                                        >
+                                            {formatLocalDate(loc.date)}
+                                        </motion.p>
+                                    )}
 
-                        {placesConfig.locations.map((loc, idx) => (
-                            <motion.div
-                                key={idx}
-                                className="places-item"
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: '-10% 0px' }}
-                                transition={{ duration: 1.2, delay: idx * 0.2, ease: FLUID_EASE }}
-                            >
-                                {loc.date && (
-                                    <p className="places-item__date">
-                                        {formatLocalDate(loc.date)}
-                                    </p>
-                                )}
+                                    {loc.time && (
+                                        <p className="places-item__time">{loc.time}</p>
+                                    )}
 
-                                {loc.time && (
-                                    <p className="places-item__time">
-                                        {loc.time}
-                                    </p>
-                                )}
+                                    <h3 className="places-item__title">{loc.title}</h3>
 
-                                <h3 className="places-item__title">{loc.title}</h3>
+                                    {loc.location && (
+                                        <p className="places-item__address">{loc.location}</p>
+                                    )}
 
-                                {loc.location && (
-                                    <p className="places-item__address">{loc.location}</p>
-                                )}
-
-                                {loc.url && (
-                                    <Button
-                                        icon={<MapPinIcon size={22} weight='thin' />}
-                                        variant="secondary"
-                                        onClick={() => window.open(loc.url, '_blank')}
-                                        className="places-item__button"
-                                    >
-                                        Ver ubicación
-                                    </Button>
-                                )}
-                            </motion.div>
-                        ))}
+                                    {loc.url && (
+                                        <Button
+                                            icon={<MapPinIcon size={22} weight='thin' />}
+                                            variant="secondary"
+                                            onClick={() => window.open(loc.url, '_blank')}
+                                            className="places-item__button"
+                                        >
+                                            Ver ubicación
+                                        </Button>
+                                    )}
+                                </motion.div>
+                            )
+                        })}
                     </div>
 
-                    <div className="places-section__jarrones">
+                    <motion.div
+                        className="places-section__jarrones"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-5% 0px' }}
+                        transition={{ duration: 1.2, delay: 0.4, ease: FLUID_EASE }}
+                    >
                         <img src={macetero} alt="macetero izquierdo" className="places-section__jarron places-section__jarron--left" />
                         <span className="places-section__jarron-line" />
                         <img src={macetero} alt="macetero derecho" className="places-section__jarron places-section__jarron--right" />
-                    </div>
+                    </motion.div>
                 </div>
             </section>
         </>

@@ -79,7 +79,7 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = ({
                         {/* Botón 2: Boleto */}
                         <button
                             type="button"
-                            className={`menu-action-card ${
+                            className={`menu-action-card menu-action-card--ticket ${
                                 pathname === '/ticket' ? 'menu-action-card--active' : ''
                             }`}
                             onClick={() => handleNavigate('/ticket')}

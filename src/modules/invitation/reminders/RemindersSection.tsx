@@ -8,7 +8,13 @@ import rsvpBg from '@/assets/images/backgrounds/rsvp.jpeg'
 import { SectionHeader } from '@/common/components/section-header/SectionHeader'
 import { useToast } from '@/common/hooks/useToast'
 
-const FLUID_EASE = [0.22, 1, 0.36, 1] as const
+const FLUID_EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
+
+const cardDirections = [
+    { x: -40, y: 0 },
+    { x: 40, y: 0 },
+    { x: 0, y: 40 },
+]
 
 export const RemindersSection: React.FC = () => {
     const { showSuccess } = useToast()
@@ -25,10 +31,10 @@ export const RemindersSection: React.FC = () => {
             <div className="reminder-section__container">
                 <motion.div
                     className="reminder-hero"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, scale: 0.93, y: 25 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
                     viewport={{ once: true, margin: '-10% 0px' }}
-                    transition={{ duration: 1.2, ease: FLUID_EASE }}
+                    transition={{ duration: 1.1, delay: 0.2, ease: FLUID_EASE }}
                 >
                     <SectionHeader
                         pretitle="NOTAS IMPORTANTES"
@@ -40,10 +46,10 @@ export const RemindersSection: React.FC = () => {
 
                 <motion.div
                     className="reminder-illustration__wrapper"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, rotate: -10, scale: 0.78 }}
+                    whileInView={{ opacity: 1, rotate: 0, scale: 1 }}
                     viewport={{ once: true, margin: '-10% 0px' }}
-                    transition={{ duration: 1.2, delay: 0.1, ease: FLUID_EASE }}
+                    transition={{ duration: 1.2, delay: 0.38, ease: FLUID_EASE }}
                 >
                     <img
                         src={megafono}
@@ -53,22 +59,35 @@ export const RemindersSection: React.FC = () => {
                 </motion.div>
 
                 <div className="reminder-cards-container">
-                    {/* Card 1: Comparte tus Fotos */}
                     <motion.div
                         className="reminder-card"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, x: cardDirections[0].x, y: cardDirections[0].y }}
+                        whileInView={{ opacity: 1, x: 0, y: 0 }}
                         viewport={{ once: true, margin: '-10% 0px' }}
-                        transition={{ duration: 1, delay: 0.2, ease: FLUID_EASE }}
+                        transition={{ duration: 1.0, delay: 0.4, ease: FLUID_EASE }}
                     >
                         <div className="reminder-item">
                             <div className="reminder-item__header">
-                                <h3 className="reminder-item__title">Comparte tus Fotos</h3>
+                                <motion.h3
+                                    className="reminder-item__title"
+                                    initial={{ opacity: 0, y: -12 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: '-10% 0px' }}
+                                    transition={{ duration: 0.8, delay: 0.58, ease: FLUID_EASE }}
+                                >
+                                    Comparte tus Fotos
+                                </motion.h3>
                             </div>
 
-                            <p className="reminder-item__description">
+                            <motion.p
+                                className="reminder-item__description"
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true, margin: '-10% 0px' }}
+                                transition={{ duration: 0.8, delay: 0.7, ease: FLUID_EASE }}
+                            >
                                 ¡Queremos guardar los mejores momentos contigo! Sube tus fotos y videos a Instagram utilizando el hashtag oficial de nuestra graduación:
-                            </p>
+                            </motion.p>
 
                             <div className="reminder-hashtag-card" style={{ backgroundImage: `url(${rsvpBg})` }}>
                                 <div
@@ -84,49 +103,87 @@ export const RemindersSection: React.FC = () => {
                         </div>
                     </motion.div>
 
-                    {/* Card 2: Puntualidad & Recepción */}
                     <motion.div
                         className="reminder-card"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, x: cardDirections[1].x, y: cardDirections[1].y }}
+                        whileInView={{ opacity: 1, x: 0, y: 0 }}
                         viewport={{ once: true, margin: '-10% 0px' }}
-                        transition={{ duration: 1, delay: 0.3, ease: FLUID_EASE }}
+                        transition={{ duration: 1.0, delay: 0.52, ease: FLUID_EASE }}
                     >
                         <div className="reminder-item">
                             <div className="reminder-item__header">
-                                <h3 className="reminder-item__title">Puntualidad & Recepción</h3>
+                                <motion.h3
+                                    className="reminder-item__title"
+                                    initial={{ opacity: 0, y: -12 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: '-10% 0px' }}
+                                    transition={{ duration: 0.8, delay: 0.7, ease: FLUID_EASE }}
+                                >
+                                    Puntualidad & Recepción
+                                </motion.h3>
                             </div>
 
-                            <p className="reminder-item__description">
+                            <motion.p
+                                className="reminder-item__description"
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true, margin: '-10% 0px' }}
+                                transition={{ duration: 0.8, delay: 0.82, ease: FLUID_EASE }}
+                            >
                                 Les sugerimos amablemente llegar con 15 a 20 minutos de anticipación al inicio de la ceremonia religiosa y la recepción para ubicar su lugar con calma y disfrutar cada momento del programa.
-                            </p>
+                            </motion.p>
 
-                            <div className="reminder-card-footer-icon">
+                            <motion.div
+                                className="reminder-card-footer-icon"
+                                initial={{ opacity: 0, scale: 0.7 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true, margin: '-5% 0px' }}
+                                transition={{ duration: 0.8, delay: 0.9, ease: FLUID_EASE }}
+                            >
                                 <img src={copas} alt="Copas" className="reminder-card-footer-icon__img" />
-                            </div>
+                            </motion.div>
                         </div>
                     </motion.div>
 
-                    {/* Card 3: Boleto Obligatorio */}
                     <motion.div
                         className="reminder-card"
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, x: cardDirections[2].x, y: cardDirections[2].y }}
+                        whileInView={{ opacity: 1, x: 0, y: 0 }}
                         viewport={{ once: true, margin: '-10% 0px' }}
-                        transition={{ duration: 1, delay: 0.4, ease: FLUID_EASE }}
+                        transition={{ duration: 1.0, delay: 0.64, ease: FLUID_EASE }}
                     >
                         <div className="reminder-item">
                             <div className="reminder-item__header">
-                                <h3 className="reminder-item__title">Boleto Obligatorio</h3>
+                                <motion.h3
+                                    className="reminder-item__title"
+                                    initial={{ opacity: 0, y: -12 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: '-10% 0px' }}
+                                    transition={{ duration: 0.8, delay: 0.82, ease: FLUID_EASE }}
+                                >
+                                    Boleto Obligatorio
+                                </motion.h3>
                             </div>
 
-                            <p className="reminder-item__description">
+                            <motion.p
+                                className="reminder-item__description"
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true, margin: '-10% 0px' }}
+                                transition={{ duration: 0.8, delay: 0.94, ease: FLUID_EASE }}
+                            >
                                 Es indispensable presentar sus boletos digitales en recepción al momento de ingresar al evento. Les pedimos presentarse con boleto en mano para agilizar su acceso al salón.
-                            </p>
+                            </motion.p>
 
-                            <div className="reminder-card-footer-icon">
+                            <motion.div
+                                className="reminder-card-footer-icon"
+                                initial={{ opacity: 0, scale: 0.7 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true, margin: '-5% 0px' }}
+                                transition={{ duration: 0.8, delay: 1.02, ease: FLUID_EASE }}
+                            >
                                 <img src={sillas} alt="Sillas" className="reminder-card-footer-icon__img" />
-                            </div>
+                            </motion.div>
                         </div>
                     </motion.div>
                 </div>
@@ -134,14 +191,13 @@ export const RemindersSection: React.FC = () => {
 
             <motion.div
                 className="reminder-tendido-full"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-10% 0px' }}
-                transition={{ duration: 1.2, delay: 0.3, ease: FLUID_EASE }}
+                viewport={{ once: true, margin: '-5% 0px' }}
+                transition={{ duration: 1.3, delay: 0.4, ease: FLUID_EASE }}
             >
                 <img src={tendido} alt="Tendido" className="reminder-tendido-full__img" />
             </motion.div>
         </section>
     )
 }
-
