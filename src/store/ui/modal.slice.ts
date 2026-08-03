@@ -3,6 +3,7 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 export const MODAL_NAMES = {
     none: 'none',
     RSVP: 'RSVP',
+    searchInfo: 'search-info'
 } as const
 
 export type ModalName = typeof MODAL_NAMES[keyof typeof MODAL_NAMES];

@@ -222,6 +222,66 @@
 }
 
 /* --------------------------------------------------------------------------
+   3.1 Keyframes - Componentes Específicos (Drawer, Menú, Reproductor, Scratch Card)
+   -------------------------------------------------------------------------- */
+
+@keyframes drawerFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes drawerSlideLeft {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes menuFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes eqBar {
+    0% {
+        height: 3px;
+    }
+
+    100% {
+        height: 12px;
+    }
+}
+
+@keyframes scratchHintPulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.92;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.06);
+        opacity: 1;
+    }
+}
+
+/* --------------------------------------------------------------------------
    4. SCSS Mixin para Aplicar Animaciones
    -------------------------------------------------------------------------- */
 

@@ -132,7 +132,7 @@
     margin-top: 1rem;
 
     &__img {
-        width: 8.4rem;
+        width: 11rem;
         height: auto;
         opacity: 0.9;
         transition: transform 0.3s ease;
@@ -143,54 +143,59 @@
     }
 }
 
-.reminder-hashtag-box {
+.reminder-hashtag-card {
     display: inline-flex;
+    justify-content: center;
     align-items: center;
-    gap: 0.8rem;
-    background-color: rgba(vars.$color-primary-100, 0.45);
-    border: 1px solid rgba(vars.$color-primary-200, 0.75);
-    padding: 0.55rem 1.1rem;
-    margin-top: 2rem;
-    cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    user-select: none;
+    padding: 0.55rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 35px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    margin-top: 1.8rem;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
     &:hover {
-        background-color: rgba(vars.$color-primary-100, 0.8);
-        border-color: vars.$color-primary-400;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 14px rgba(vars.$color-primary-900, 0.08);
+        transform: translateY(-2px) scale(1.02);
+    }
+}
+
+.reminder-hashtag-inner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, #ffffff 60%, #fbf9f4 100%);
+    border: 1px solid vars.$color-secondary;
+    border-radius: 28px;
+    padding: 0.75rem 2rem;
+    position: relative;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.25s ease;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        border: 0.5px solid rgba(vars.$color-secondary, 0.7);
+        border-radius: 25px;
+        pointer-events: none;
     }
 
-    &__tag {
-        font-family: vars.$font-sans;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: vars.$color-primary-900;
-        letter-spacing: 0.03em;
+    &:hover {
+        border-color: vars.$color-primary;
     }
+}
 
-    &__btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        background-color: vars.$color-primary-800;
-        color: #ffffff;
-        border: none;
-        padding: 0.4rem 0.85rem;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-family: vars.$font-sans;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background-color 0.2s ease, transform 0.15s ease;
-
-        &:hover {
-            background-color: vars.$color-primary-900;
-        }
-
-        &:active {
-            transform: scale(0.96);
-        }
-    }
+.reminder-hashtag-tag {
+    font-family: vars.$font-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: vars.$color-primary-900;
+    letter-spacing: 0.05em;
 }

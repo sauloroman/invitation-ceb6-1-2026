@@ -2,7 +2,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import megafono from '@/assets/images/icons/megafono.svg'
 import tendido from '@/assets/images/icons/tendido-2.svg'
-import copas from '@/assets/images/icons/copas.svg'
+import macetero from '@/assets/images/icons/macetero.svg'
+import rsvpBg from '@/assets/images/backgrounds/rsvp.jpeg'
 import { SectionHeader } from '@/common/components/section-header/SectionHeader'
 import { useToast } from '@/common/hooks/useToast'
 
@@ -66,8 +67,16 @@ export const RemindersSection: React.FC = () => {
                             ¡Queremos guardar los mejores momentos contigo! Sube tus fotos y videos a Instagram utilizando el hashtag oficial de nuestra graduación:
                         </p>
 
-                        <div className="reminder-hashtag-box" onClick={handleCopyHashtag} role="button" tabIndex={0} title="Haz clic para copiar hashtag">
-                            <span className="reminder-hashtag-box__tag">{hashtag}</span>
+                        <div className="reminder-hashtag-card" style={{ backgroundImage: `url(${rsvpBg})` }}>
+                            <div
+                                className="reminder-hashtag-inner"
+                                onClick={handleCopyHashtag}
+                                role="button"
+                                tabIndex={0}
+                                title="Haz clic para copiar hashtag"
+                            >
+                                <span className="reminder-hashtag-tag">{hashtag}</span>
+                            </div>
                         </div>
                     </div>
 
@@ -96,7 +105,7 @@ export const RemindersSection: React.FC = () => {
                     </div>
 
                     <div className="reminder-card-footer-icon">
-                        <img src={copas} alt="Copas" className="reminder-card-footer-icon__img" />
+                        <img src={macetero} alt="Macetero" className="reminder-card-footer-icon__img" />
                     </div>
                 </motion.div>
             </div>

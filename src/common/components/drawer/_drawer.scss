@@ -1,31 +1,5 @@
 @use '../../styles/variables' as vars;
 
-// ============================================================
-// Drawer – Lateral Panel — Save-the-Date exact replica
-// Palette 9: Navy #191D39  ·  Gold #C7A546  ·  Mauve #A68B81
-// ============================================================
-
-@keyframes drawerFadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes drawerSlideLeft {
-    from {
-        transform: translateX(-100%);
-    }
-
-    to {
-        transform: translateX(0);
-    }
-}
-
-// ---------- Overlay ----------
 .drawer-overlay {
     position: fixed;
     inset: 0;
@@ -39,7 +13,6 @@
     animation: drawerFadeIn 0.35s ease forwards;
 }
 
-// ---------- Panel ----------
 .drawer-content {
     background-color: vars.$color-1;
     width: 100%;
@@ -52,7 +25,6 @@
     position: relative;
 }
 
-// ---------- Close Button ----------
 .drawer-close-btn {
     position: absolute;
     top: 1.2rem;
@@ -84,7 +56,6 @@
 
 
 
-// ---------- Body / Scroll ----------
 .drawer-body {
     flex: 1;
     overflow-y: auto;
@@ -103,17 +74,12 @@
     }
 }
 
-// ============================================================
-// Intro hero — exact "Save the Date" layout
-// ============================================================
 .drawer-career-card {
     position: relative;
     padding: 0 2.8rem 3.2rem;
     text-align: center;
     border-bottom: 1px solid rgba(vars.$color-4, 0.2);
 
-    // ── "SAVE the DATE" row ──────────────────────────
-    // Flex row: [serif caps] [cursive italic] [serif caps]
     &__headline {
         display: flex;
         align-items: center;
@@ -139,7 +105,6 @@
         line-height: 1;
     }
 
-    // ── "para o casamento de" ────────────────────────
     &__para {
         font-family: vars.$font-serif;
         font-style: italic;
@@ -149,7 +114,6 @@
         margin: 0 0 0.9rem;
     }
 
-    // ── "Carol e Gabriel" ────────────────────────────
     &__name {
         font-family: vars.$font-p4-cursive;
         font-size: 4rem;
@@ -159,7 +123,6 @@
         letter-spacing: -0.01em;
     }
 
-    // ── "12 DE ABRIL DE 2026" ────────────────────────
     &__date {
         font-family: vars.$font-serif;
         font-size: 1.2rem;
@@ -169,7 +132,6 @@
         margin: 0 0 0.35rem;
     }
 
-    // ── "SÃO PAULO, SP / EM BREVE..." ────────────────
     &__detail {
         font-family: vars.$font-sans;
         font-size: 0.65rem;
@@ -184,9 +146,6 @@
     }
 }
 
-// ============================================================
-// "SALONES" section label
-// ============================================================
 .drawer-section-label {
     font-family: vars.$font-sans;
     font-size: 0.62rem;
@@ -197,9 +156,6 @@
     margin: 0;
 }
 
-// ============================================================
-// Floating monogram — top and bottom of body
-// ============================================================
 .drawer-monogram {
     display: block;
     font-family: vars.$font-serif;
@@ -213,9 +169,6 @@
     padding: 1.4rem 0;
 }
 
-// ============================================================
-// Accordion dark overrides — flat, no lines, no border-radius
-// ============================================================
 .drawer-body {
     .accordion--separated {
         gap: 0;
@@ -263,9 +216,6 @@
     }
 }
 
-// ============================================================
-// Graduate list
-// ============================================================
 .graduates-drawer {
     &__body {
         width: 100%;

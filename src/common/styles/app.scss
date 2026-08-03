@@ -32,3 +32,8 @@
 
 // Invitation Envelop
 @use '../../modules/envelop/_envelop.scss';
+
+// Invitation Search
+@use '../../modules/search/search';
+@use '../../modules/search/components/search-form/search-form';
+@use '../../modules/search/components/search-modal/search-modal';
