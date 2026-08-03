@@ -1,0 +1,263 @@
+@use '../../../common/styles/variables' as vars;
+@use '../../../common/styles/mixins' as mix;
+
+.dress-code-section {
+    padding: 8rem 1.5rem 8rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        width: 100%;
+        max-width: 580px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.dress-code-hero {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.dress-code-illustration__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    margin-bottom: -5rem;
+    pointer-events: none;
+}
+
+.dress-code-illustration {
+    width: min(60%, 480px);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.06));
+}
+
+.dress-code-card-main {
+    background-color: #ffffff;
+    box-shadow: 0 16px 45px rgba(vars.$color-primary-900, 0.07);
+    border: 1px solid rgba(vars.$color-primary-200, 0.55);
+    padding: 7rem 2rem 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.4rem;
+    position: relative;
+    z-index: 1;
+
+    &__title {
+        font-family: vars.$font-serif;
+        font-size: clamp(1.4rem, 4vw, 1.8rem);
+        font-weight: 500;
+        color: vars.$color-primary-900;
+        margin: 0;
+        letter-spacing: 0.02em;
+    }
+
+    &__description {
+        font-family: vars.$font-serif;
+        font-size: clamp(1rem, 3.2vw, 1.15rem);
+        color: vars.$color-text-700;
+        line-height: 1.65;
+        margin: 0;
+        max-width: 440px;
+        font-weight: 400;
+    }
+
+    &__note {
+        font-family: vars.$font-serif;
+        font-size: clamp(1.2rem, 3vw, 1.05rem);
+        color: vars.$color-primary-700;
+        margin: 0.5rem 0 0 0;
+        line-height: 1.5;
+        max-width: 420px;
+    }
+}
+
+.dress-code-attire {
+    &__grid {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+        width: 100%;
+        border-top: 1px solid rgba(vars.$color-primary-100, 0.7);
+        padding-top: 1.5rem;
+    }
+
+    &__item {
+        flex: 1;
+        min-width: 160px;
+        text-align: center;
+    }
+
+    &__label {
+        font-family: vars.$font-serif;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: vars.$color-primary-800;
+        display: block;
+        margin-bottom: 0.35rem;
+    }
+
+    &__text {
+        font-family: vars.$font-sans;
+        font-size: 0.92rem;
+        color: vars.$color-text-700;
+        margin: 0;
+        line-height: 1.5;
+    }
+}
+
+.dress-code-colors {
+    width: 100%;
+    margin-top: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    border-top: 1px solid rgba(vars.$color-primary-100, 0.7);
+    padding-top: 1.5rem;
+
+    &__block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        width: 100%;
+    }
+
+    &__note {
+        font-family: vars.$font-serif;
+        font-style: italic;
+        font-size: 1.02rem;
+        color: vars.$color-text-700;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    &__note-suggested {
+        font-family: vars.$font-serif;
+        font-size: 0.92rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: vars.$color-primary-800;
+        margin: 0;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+    }
+}
+
+.color-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-family: vars.$font-sans;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+
+    &--avoid {
+        background-color: rgba(#c62828, 0.06);
+        border: 1px solid rgba(#c62828, 0.15);
+        color: #b71c1c;
+    }
+
+    &--suggested {
+        background-color: rgba(vars.$color-primary-100, 0.5);
+        border: 1px solid rgba(vars.$color-primary-200, 0.6);
+        color: vars.$color-primary-900;
+    }
+
+    &__dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        flex-shrink: 0;
+    }
+
+    &__name {
+        text-transform: capitalize;
+    }
+}
+
+// ---------- Watercolor Swatches Palette ----------
+.dress-code-palette {
+    width: 100%;
+    margin-top: 1.2rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid rgba(vars.$color-primary-100, 0.65);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__swatches {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.4rem;
+        flex-wrap: wrap;
+    }
+}
+
+.dress-code-swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+
+    &__circle {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.7), 0 4px 14px rgba(0, 0, 0, 0.06);
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &--sage {
+            background: radial-gradient(circle at 35% 35%, #e6f0de 0%, #b8d2b2 60%, #8ca987 100%);
+        }
+
+        &--beige {
+            background: radial-gradient(circle at 35% 35%, #fffdf2 0%, #f5e9c6 60%, #ded1a5 100%);
+        }
+
+        &--blue {
+            background: radial-gradient(circle at 35% 35%, #f2f8fc 0%, #d2e6f4 60%, #a8cce4 100%);
+        }
+
+        &--rose {
+            background: radial-gradient(circle at 35% 35%, #fdf2f2 0%, #edc6c4 60%, #da9f9c 100%);
+        }
+    }
+
+    &__label {
+        font-family: vars.$font-sans;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: vars.$color-primary-800;
+        text-align: center;
+    }
+}

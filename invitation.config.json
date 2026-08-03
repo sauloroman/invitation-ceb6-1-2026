@@ -1,0 +1,135 @@
+{
+  "theme": {
+    "fontPack": 4,
+    "palette": 2,
+    "buttonVariant": "primary",
+    "menu": {
+      "show": false,
+      "variant": "bar",
+      "title": "CEB 6/1",
+      "buttonVariant": "icon"
+    },
+    "music": {
+      "show": true,
+      "variant": "floating",
+      "buttonVariant": "primary",
+      "songTitle": "Música de fondo",
+      "artistName": "Música del evento"
+    }
+  },
+  "config": {
+    "hasTicketingSystem": true,
+    "hasRSVP": true,
+    "hasMusic": true,
+    "hasMenu": false
+  },
+  "sections": {
+    "hero": {
+      "showHero": true,
+      "names": "CEB 6/1",
+      "subtitle": "Nos complace invitarte a celebrar el día más importante de nuestras vidas",
+      "date": "7 DE AGOSTO DE 2026",
+      "bgImage": ""
+    },
+    "message": {
+      "showMessage": true,
+      "message": "Te invitamos de corazón a acompañarnos en este momento tan especial y celebrar juntos el amor que nos une."
+    },
+    "countdown": {
+      "showCountdown": true,
+      "targetDate": "2026-08-07T19:00:00"
+    },
+    "places": {
+      "showPlaces": true,
+      "locations": [
+        {
+          "title": "Ceremonia Religiosa",
+          "location": "Santuario de Nuestra Sra. de Guadalupe. C. Guadalupe 213, Barrio de Guadalupe, 20059 Aguascalientes, Ags.",
+          "time": "19:00 HRS",
+          "date": "2026-08-07",
+          "url": "https://maps.app.goo.gl/D2UKsaMMJWTN5UcE9"
+        },
+        {
+          "title": "Recepción & Fiesta",
+          "location": "Salón Hopaliz. Blvd. San Marcos #109 Capital City, 20207 Aguascalientes, Ags.",
+          "time": "21:00 HRS",
+          "date": "2026-08-07",
+          "url": "https://maps.app.goo.gl/Ej4U4gfopJPWMNuw5"
+        }
+      ]
+    },
+    "itinerary": {
+      "showItinerary": true,
+      "itinerary": [
+        {
+          "time": "19:00 HRS",
+          "event": "Ceremonia Religiosa"
+        },
+        {
+          "time": "21:00 HRS",
+          "event": "Recepción"
+        },
+        {
+          "time": "21:00 - 22:00 HRS",
+          "event": "Cocteles"
+        },
+        {
+          "time": "22:30 HRS",
+          "event": "Cena (3 tiempos)"
+        },
+        {
+          "time": "23:30 HRS",
+          "event": "Brindis de graduados"
+        },
+        {
+          "time": "00:00 HRS",
+          "event": "Se abre la pista"
+        },
+        {
+          "time": "00:30 HRS",
+          "event": "Camara fotográfica 360"
+        },
+        {
+          "time": "02:00 HRS",
+          "event": "Música Banda"
+        },
+        {
+          "time": "03:00 HRS",
+          "event": "Fin del evento"
+        }
+      ]
+    },
+    "dressCode": {
+      "showDressCode": true,
+      "title": "Código de Vestimenta",
+      "description": "Les pedimos amablemente vestir de rigurosa etiqueta formal para acompañarnos en esta gran noche de graduación.",
+      "attire": {
+        "men": "Traje oscuro y corbata.",
+        "women": "Vestido largo o cocktail."
+      },
+      "colors": {
+        "suggested": [
+          "negro",
+          "azul oscuro"
+        ],
+        "avoid": [
+          "blanco",
+          "beige"
+        ]
+      }
+    },
+    "gallery": {
+      "showGallery": true,
+      "title": "Galería de Fotos",
+      "images": []
+    },
+    "presents": {
+      "showPresents": true,
+      "title": "Mesa de Regalos Liverpool",
+      "url": "https://mesaderegalos.liverpool.com.mx"
+    },
+    "confirmation": {
+      "showConfirmation": true
+    }
+  }
+}

@@ -1,0 +1,146 @@
+@use '../../../common/styles/variables' as vars;
+@use '../../../common/styles/mixins' as mix;
+
+.places-section {
+    padding: 6rem 2rem 12rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    &__colgantes {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 4rem;
+
+        img {
+            width: 100%;
+            max-width: 35rem;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+
+    &__container {
+        width: 100%;
+        max-width: 960px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    &__jarrones {
+        position: absolute;
+        bottom: 3rem;
+        left: 0;
+        right: 0;
+        height: auto;
+        pointer-events: none;
+    }
+
+    &__jarron {
+        position: absolute;
+        bottom: -15px;
+        width: clamp(8rem, 15vw, 130px);
+        height: auto;
+        z-index: 5;
+        transition: transform 0.3s ease;
+
+        &--left {
+            left: -10px;
+        }
+
+        &--right {
+            right: -10px;
+            transform: scaleX(-1);
+        }
+    }
+
+    &__jarron-line {
+        position: absolute;
+        bottom: 35px;
+        left: clamp(100px, 16vw, 140px);
+        right: clamp(100px, 16vw, 140px);
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgba(vars.$color-secondary, 0.6), transparent);
+        z-index: 4;
+    }
+}
+
+.places-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    gap: 1rem;
+    padding: 1.5rem 0;
+
+    &__date {
+        font-family: vars.$font-serif;
+        font-size: clamp(1.15rem, 3.5vw, 1.35rem);
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: vars.$color-primary;
+        margin: 0;
+    }
+
+    &__time {
+        font-family: vars.$font-serif;
+        font-size: clamp(2.2rem, 3vw, 1.2rem);
+        font-weight: 400;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: vars.$color-primary;
+        margin: 0;
+    }
+
+    &__title {
+        font-family: vars.$font-serif;
+        font-size: clamp(1.1rem, 3vw, 1.25rem);
+        font-weight: 600;
+        color: vars.$color-primary-900;
+        margin: 0.8rem 0 0.2rem;
+        letter-spacing: 0.5px;
+    }
+
+    &__address {
+        font-family: vars.$font-sans;
+        font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+        font-weight: 400;
+        line-height: 1.7;
+        color: vars.$color-text-600;
+        margin: 0;
+        max-width: 85%;
+    }
+
+    &__button {
+        font-family: vars.$font-sans;
+        font-size: clamp(0.75rem, 2.2vw, 0.85rem);
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        padding: 0.9rem 2.5rem;
+        background-color: transparent;
+        border: 1px solid vars.$color-primary-400;
+        color: vars.$color-primary;
+        border-radius: 30px; // Pill shape
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 1.2rem;
+
+        &:hover {
+            background-color: vars.$color-primary;
+            border-color: vars.$color-primary;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(vars.$color-primary, 0.2);
+        }
+    }
+}
