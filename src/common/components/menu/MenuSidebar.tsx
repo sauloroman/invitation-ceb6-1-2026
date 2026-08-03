@@ -3,18 +3,25 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { XIcon, CaretDownIcon } from '@phosphor-icons/react'
 
 import { useMenu } from '@/common/hooks/useMenu'
+import { useTicket } from '@/common/hooks/useTicket'
 import type { MenuSidebarProps } from '@/common/types'
 
 export const MenuSidebar: React.FC<MenuSidebarProps> = ({
     title = 'CEB 6/1',
 }) => {
     const { isMenuOpen, onCloseMenu } = useMenu()
+    const { onRemoveTicket } = useTicket()
     const navigate = useNavigate()
     const { pathname } = useLocation()
     const [isAccordionOpen, setIsAccordionOpen] = useState(true)
 
     const overlayClass = `menu-overlay ${isMenuOpen ? 'menu-overlay--open' : ''}`
     const sidebarClass = `menu-sidebar ${isMenuOpen ? 'menu-sidebar--open' : ''}`
+
+    const handleLogout = () => {
+        onCloseMenu()
+        onRemoveTicket()
+    }
 
     const handleNavigate = (path: string) => {
         onCloseMenu()
@@ -158,7 +165,7 @@ export const MenuSidebar: React.FC<MenuSidebarProps> = ({
                     <button
                         type="button"
                         className="menu-logout-btn"
-                        onClick={() => handleNavigate('/search')}
+                        onClick={handleLogout}
                     >
                         <div className="menu-logout-btn__info">
                             <span className="menu-logout-btn__title">BUSCAR INVITACIÓN</span>

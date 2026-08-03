@@ -8,21 +8,7 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-    ticket: {
-        id: '',
-        name: '',
-        adultsQuantity: 0,
-        adultsCounter: 0,
-        kidsQuantity: 0,
-        kidsCounter: 0,
-        qrCode: '',
-        phone: '',
-        keyPass: '',
-        isActive: true,
-        event: '',
-        user: '',
-        table: ''
-    },
+    ticket: null,
     isLoading: false,
     error: null,
 }

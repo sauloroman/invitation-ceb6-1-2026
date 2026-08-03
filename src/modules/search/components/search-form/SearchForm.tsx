@@ -1,26 +1,44 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
 import { MagnifyingGlassIcon } from '@phosphor-icons/react'
+import { useTicket } from '@/common/hooks'
 import { Button } from '@/common/components/button/Button'
 
+interface TicketSearch {
+    keyPass: string
+}
+
 export const SearchForm: React.FC = () => {
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-    }
+    const { onGetTicket, isLoading } = useTicket()
+    const { register, handleSubmit, formState: { errors } } = useForm<TicketSearch>({
+        defaultValues: { keyPass: '' }
+    })
 
     return (
-        <form className="search-form" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit((data) => onGetTicket(data.keyPass))} className="search-form">
             <div className="search-form__field">
-                <label htmlFor="clave-de-acceso" className="search-form__label">
+                <label htmlFor="keyPass" className="search-form__label">
                     Ingresa tu clave de acceso
                 </label>
 
                 <input
+                    {...register('keyPass', {
+                        required: 'Por favor, ingresa tu clave de acceso',
+                        validate: (val) => (val && val.trim().length > 0) || 'Por favor, ingresa una clave de acceso válida',
+                        minLength: { value: 4, message: 'La clave de acceso debe tener al menos 4 caracteres' },
+                    })}
                     type="text"
                     className="search-form__input"
-                    id="clave-de-acceso"
+                    id="keyPass"
                     placeholder="Ej: abc123"
                     autoComplete="off"
+                    disabled={isLoading}
                 />
+                {errors.keyPass && (
+                    <span className="search-form__error" style={{ color: '#ff6b6b', fontSize: '1.1rem', marginTop: '0.2rem', textAlign: 'center' }}>
+                        {errors.keyPass.message}
+                    </span>
+                )}
 
                 <Button
                     type="submit"
@@ -30,6 +48,7 @@ export const SearchForm: React.FC = () => {
                     radius="full"
                     icon={<MagnifyingGlassIcon size={18} weight="bold" />}
                     aria-label="Buscar invitación"
+                    isLoading={isLoading}
                 >
                     BUSCAR INVITACIÓN
                 </Button>
@@ -37,3 +56,6 @@ export const SearchForm: React.FC = () => {
         </form>
     )
 }
+
+
+

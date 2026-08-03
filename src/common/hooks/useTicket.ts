@@ -46,9 +46,15 @@ export const useTicket = () => {
     }, [dispatch])
 
     const onCheckInitialData = useCallback(() => {
-        const ticket = localStorage.getItem('abrasa-ticket')
-        if (ticket) {
-            dispatch(setTicket(JSON.parse(ticket)))
+        const ticketStr = localStorage.getItem('abrasa-ticket')
+        if (ticketStr) {
+            try {
+                dispatch(setTicket(JSON.parse(ticketStr)))
+            } catch {
+                dispatch(setTicket(null))
+            }
+        } else {
+            dispatch(setTicket(null))
         }
     }, [dispatch])
 

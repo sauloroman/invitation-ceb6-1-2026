@@ -11,7 +11,7 @@ export const SearchModal: React.FC = () => {
                         <TicketIcon size={24} weight="duotone" />
                     </div>
                     <div className="search-modal__item-text">
-                        <strong>Acceso a Boletos:</strong> Esta invitación requiere acceso por medio de una clave única para poder obtener sus boletos.
+                        <strong>Clave Única requerida:</strong> Esta invitación requiere acceso por medio de una clave única para poder obtener sus boletos.
                     </div>
                 </div>
 
