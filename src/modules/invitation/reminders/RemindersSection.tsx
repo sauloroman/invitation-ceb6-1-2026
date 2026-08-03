@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import megafono from '@/assets/images/icons/megafono.svg'
+import tendido from '@/assets/images/icons/tendido-2.svg'
 import { SectionHeader } from '@/common/components/section-header/SectionHeader'
 import { useToast } from '@/common/hooks/useToast'
 
@@ -94,6 +95,16 @@ export const RemindersSection: React.FC = () => {
                     </div>
                 </motion.div>
             </div>
+
+            <motion.div
+                className="reminder-tendido-full"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-10% 0px' }}
+                transition={{ duration: 1.2, delay: 0.3, ease: FLUID_EASE }}
+            >
+                <img src={tendido} alt="Tendido" className="reminder-tendido-full__img" />
+            </motion.div>
         </section>
     )
 }

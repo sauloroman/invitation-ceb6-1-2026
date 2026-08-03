@@ -104,11 +104,11 @@
 
     &__title {
         font-family: vars.$font-serif;
-        font-size: clamp(1.1rem, 3vw, 1.25rem);
-        font-weight: 600;
+        font-size: 1.8rem;
+        font-weight: 700;
         color: vars.$color-primary-900;
-        margin: 0.8rem 0 0.2rem;
-        letter-spacing: 0.5px;
+        margin: 0;
+        letter-spacing: 0.02em;
     }
 
     &__address {
