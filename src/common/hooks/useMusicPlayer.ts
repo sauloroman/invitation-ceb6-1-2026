@@ -21,11 +21,22 @@ const getGlobalAudio = () => {
 export const useMusicPlayer = (props?: MusicPlayerProps) => {
     const dispatch = useDispatch()
     const isPlaying = useSelector((state: RootState) => state.music.isPlaying)
+    const ticket = useSelector((state: RootState) => state.ticket.ticket)
     const { theme, config } = useInvitationConfig()
+
+    const hasTicket = Boolean(ticket)
 
     useEffect(() => {
         const audio = getGlobalAudio()
         if (!audio) return
+
+        if (!hasTicket) {
+            audio.pause()
+            if (isPlaying) {
+                dispatch(pauseMusic())
+            }
+            return
+        }
 
         if (isPlaying) {
             audio.play().catch(() => {
@@ -34,13 +45,21 @@ export const useMusicPlayer = (props?: MusicPlayerProps) => {
         } else {
             audio.pause()
         }
-    }, [isPlaying, dispatch])
+    }, [isPlaying, hasTicket, dispatch])
 
-    const onPlayMusic = () => dispatch(playMusic())
+    const onPlayMusic = () => {
+        if (!hasTicket) return
+        dispatch(playMusic())
+    }
+
     const onPauseMusic = () => dispatch(pauseMusic())
-    const onToggleMusic = () => dispatch(toggleMusic())
 
-    const isMusicVisible = props?.show ?? theme.music?.show ?? config?.hasMusic ?? true
+    const onToggleMusic = () => {
+        if (!hasTicket) return
+        dispatch(toggleMusic())
+    }
+
+    const isMusicVisible = hasTicket && (props?.show ?? theme.music?.show ?? config?.hasMusic ?? true)
     const activeVariant: MusicPlayerVariant = props?.variant || theme.music?.variant || 'floating'
     const activeBtnVariant: ButtonVariant = props?.buttonVariant || theme.music?.buttonVariant || theme.buttonVariant || 'primary'
     const activeSongTitle = props?.songTitle || theme.music?.songTitle || 'Música de fondo'
@@ -58,4 +77,3 @@ export const useMusicPlayer = (props?: MusicPlayerProps) => {
         onToggleMusic,
     }
 }
-
