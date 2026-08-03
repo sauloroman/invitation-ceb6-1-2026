@@ -4,8 +4,8 @@
     "palette": 9,
     "buttonVariant": "primary",
     "menu": {
-      "show": false,
-      "variant": "bar",
+      "show": true,
+      "variant": "floating",
       "title": "CEB 6/1",
       "buttonVariant": "icon"
     },
@@ -21,7 +21,7 @@
     "hasTicketingSystem": true,
     "hasRSVP": true,
     "hasMusic": true,
-    "hasMenu": false
+    "hasMenu": true
   },
   "sections": {
     "hero": {

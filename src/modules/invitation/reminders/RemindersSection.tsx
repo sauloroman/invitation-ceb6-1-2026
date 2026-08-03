@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import megafono from '@/assets/images/icons/megafono.svg'
 import tendido from '@/assets/images/icons/tendido-2.svg'
+import copas from '@/assets/images/icons/copas.svg'
 import { SectionHeader } from '@/common/components/section-header/SectionHeader'
 import { useToast } from '@/common/hooks/useToast'
 
@@ -92,6 +93,10 @@ export const RemindersSection: React.FC = () => {
                         <p className="reminder-item__description">
                             Es indispensable presentar sus boletos digitales en recepción al momento de ingresar al evento. Les pedimos presentarse con boleto en mano para agilizar su acceso al salón.
                         </p>
+                    </div>
+
+                    <div className="reminder-card-footer-icon">
+                        <img src={copas} alt="Copas" className="reminder-card-footer-icon__img" />
                     </div>
                 </motion.div>
             </div>

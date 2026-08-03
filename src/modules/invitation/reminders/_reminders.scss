@@ -125,6 +125,24 @@
     margin: 0.2rem 0;
 }
 
+.reminder-card-footer-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+
+    &__img {
+        width: 8.4rem;
+        height: auto;
+        opacity: 0.9;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
 .reminder-hashtag-box {
     display: inline-flex;
     align-items: center;

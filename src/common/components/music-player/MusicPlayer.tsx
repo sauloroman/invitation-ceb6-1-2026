@@ -5,6 +5,8 @@ import { useMusicPlayer } from '@/common/hooks'
 import { Button } from '../button/Button'
 import type { MusicPlayerProps } from '@/common/types'
 
+const HIDDEN_ROUTES = ['/search', '/']
+
 export const MusicPlayer: React.FC<MusicPlayerProps> = (props) => {
     const { pathname } = useLocation()
     const {
@@ -17,8 +19,7 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = (props) => {
         onToggleMusic,
     } = useMusicPlayer(props)
 
-    if (!isMusicVisible) return null
-    if (activeVariant === 'floating' && pathname !== '/invitation') return null
+    if (!isMusicVisible || HIDDEN_ROUTES.includes(pathname)) return null
 
     const variantClass = `music-player--${activeVariant}`
     const playingClass = isPlaying ? 'music-player--playing' : ''

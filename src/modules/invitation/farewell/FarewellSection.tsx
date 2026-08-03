@@ -1,11 +1,59 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
+import confetti from 'canvas-confetti'
 import bg from '@/assets/images/backgrounds/rsvp.jpeg'
 import marco from '@/assets/images/icons/marco.svg'
 
 const FLUID_EASE = [0.22, 1, 0.36, 1] as const
 
+const CONFETTI_COLORS = ['#191D39', '#2B4C7E', '#ffffff', '#F8FAFC', '#C7A546', '#E5C158']
+
 export const FarewellSection: React.FC = () => {
+    const hasTriggeredRef = useRef(false)
+
+    const triggerConfetti = () => {
+        if (hasTriggeredRef.current) return
+        hasTriggeredRef.current = true
+
+        const count = 200
+        const defaults = {
+            origin: { y: 0.8 },
+            colors: CONFETTI_COLORS,
+            zIndex: 1500,
+        }
+
+        const fire = (particleRatio: number, opts: confetti.Options) => {
+            confetti({
+                ...defaults,
+                ...opts,
+                particleCount: Math.floor(count * particleRatio),
+            })
+        }
+
+        fire(0.25, {
+            spread: 26,
+            startVelocity: 55,
+        })
+        fire(0.2, {
+            spread: 60,
+        })
+        fire(0.35, {
+            spread: 100,
+            decay: 0.91,
+            scalar: 0.8,
+        })
+        fire(0.1, {
+            spread: 120,
+            startVelocity: 25,
+            decay: 0.92,
+            scalar: 1.2,
+        })
+        fire(0.1, {
+            spread: 120,
+            startVelocity: 45,
+        })
+    }
+
     return (
         <>
             <section id="farewell" className="farewell">
@@ -17,6 +65,7 @@ export const FarewellSection: React.FC = () => {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: '-10% 0px' }}
+                        onViewportEnter={triggerConfetti}
                         transition={{ duration: 1.2, ease: FLUID_EASE }}
                     >
                         <img src={marco} alt="Marco Floral" className="farewell__frame-bg" />
@@ -52,4 +101,5 @@ export const FarewellSection: React.FC = () => {
         </>
     )
 }
+
 
