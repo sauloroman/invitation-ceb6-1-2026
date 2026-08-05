@@ -4,7 +4,7 @@ import { useInvitationConfig } from '@/common/hooks'
 import { SectionHeader } from '@/common/components/section-header/SectionHeader'
 
 import rsvpBg from '@/assets/images/backgrounds/rsvp.jpeg'
-import macetero from '@/assets/images/icons/macetero.svg'
+import macetero from '@/assets/images/icons/macetero.webp'
 
 const FLUID_EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 

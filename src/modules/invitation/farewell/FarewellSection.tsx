@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { motion, type Variants } from 'framer-motion'
 import confetti from 'canvas-confetti'
 import bg from '@/assets/images/backgrounds/rsvp.jpeg'
-import marco from '@/assets/images/icons/marco.svg'
+import marco from '@/assets/images/icons/marco.webp'
 
 const FLUID_EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 

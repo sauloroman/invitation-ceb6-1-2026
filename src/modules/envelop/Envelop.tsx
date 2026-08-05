@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useNavigation, useMusicPlayer } from '@/common/hooks'
 import envelopVideo from '@/assets/videos/envelop-opening.mp4'
-import selloIcon from '@/assets/images/icons/sello.svg'
+import selloIcon from '@/assets/images/icons/sello.webp'
 
 export const Envelop: React.FC = () => {
     const videoRef = useRef<HTMLVideoElement>(null)

@@ -4,7 +4,7 @@ import { Button } from '@/common/components/button/Button'
 
 import bg from '@/assets/images/backgrounds/rsvp.jpeg'
 import { ArrowUpRightIcon } from '@phosphor-icons/react'
-import logo from '@/assets/images/icons/logo.svg'
+import logo from '@/assets/images/icons/logo.webp'
 import { useDrawer } from '@/common/hooks'
 import { DRAWER_NAMES } from '@/store/ui/drawer.slice'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { motion, type Variants } from 'framer-motion'
 import { useInvitationConfig } from '@/common/hooks'
 import { SectionHeader } from '@/common/components/section-header/SectionHeader'
-import table from '@/assets/images/icons/table.svg'
+import table from '@/assets/images/icons/table.webp'
 
 const FLUID_EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 

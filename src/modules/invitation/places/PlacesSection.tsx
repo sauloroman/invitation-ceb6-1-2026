@@ -5,8 +5,8 @@ import { SectionHeader } from '@/common/components/section-header/SectionHeader'
 import { Button } from '@/common/components/button/Button'
 import { MapPinIcon } from '@phosphor-icons/react'
 
-import colagantes from '@/assets/images/icons/colgantes.svg'
-import macetero from '@/assets/images/icons/jarron.svg'
+import colagantes from '@/assets/images/icons/colgantes.webp'
+import macetero from '@/assets/images/icons/jarron.webp'
 
 const FLUID_EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 

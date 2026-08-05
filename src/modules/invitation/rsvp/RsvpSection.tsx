@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useTicket, useInvitationConfig } from '@/common/hooks'
 import { LinkIcon } from '@phosphor-icons/react'
 import bg from '@/assets/images/backgrounds/rsvp.jpeg'
-import sello from '@/assets/images/icons/sello.svg'
+import sello from '@/assets/images/icons/sello.webp'
 
 const FLUID_EASE = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
