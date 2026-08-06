@@ -118,7 +118,7 @@ export const PlacesSection: React.FC = () => {
                         className="places-section__jarrones"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: '-5% 0px' }}
+                        viewport={{ once: true }}
                         transition={{ duration: 1.2, delay: 0.4, ease: FLUID_EASE }}
                     >
                         <img src={macetero} alt="macetero izquierdo" className="places-section__jarron places-section__jarron--left" />

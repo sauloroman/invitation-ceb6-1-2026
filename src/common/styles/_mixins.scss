@@ -144,6 +144,45 @@
     }
 }
 
+/// Responsive Media Query Helper (Mobile-First / min-width)
+@mixin respondToMin($breakpoint) {
+    @if $breakpoint == 'sm' or $breakpoint == 576px {
+        @media (min-width: 576px) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint == 'md' or $breakpoint == 768px {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint == 'lg' or $breakpoint == 992px {
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint == 'xl' or $breakpoint == 1200px {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
+
+    @else {
+        @media (min-width: $breakpoint) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-to-min($breakpoint) {
+    @include respondToMin($breakpoint) {
+        @content;
+    }
+}
+
 /// Text Truncation (Single or Multi-line)
 @mixin textTruncate($lines: 1) {
     @if $lines == 1 {
