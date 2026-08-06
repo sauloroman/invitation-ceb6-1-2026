@@ -1,21 +1,29 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useInvitationConfig } from '@/common/hooks'
 import heroVideo from '@/assets/videos/hero.mp4'
 
-
-
 const FLUID_EASE = [0.22, 1, 0.36, 1] as const
 
 export const HeroSection: React.FC = () => {
+    const videoRef = useRef<HTMLVideoElement>(null)
     const { sections } = useInvitationConfig()
 
     const names = sections.hero?.names ?? 'CEB 6/1'
     const date = sections.hero?.date ?? '7 DE AGOSTO DE 2026'
 
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.play().catch((err) => {
+                console.log('Video autoplay blocked or failed:', err)
+            })
+        }
+    }, [])
+
     return (
         <div id="hero" className="hero">
             <video
+                ref={videoRef}
                 autoPlay
                 loop
                 muted
@@ -28,7 +36,7 @@ export const HeroSection: React.FC = () => {
             </video>
 
             <div className="hero__content">
-                <motion.h1 
+                <motion.h1
                     className="hero__title"
                     initial={{ opacity: 0, y: 25 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -37,7 +45,7 @@ export const HeroSection: React.FC = () => {
                     {names}
                 </motion.h1>
 
-                <motion.p 
+                <motion.p
                     className="hero__generation"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -46,7 +54,7 @@ export const HeroSection: React.FC = () => {
                     Generación 2023 - 2026
                 </motion.p>
 
-                <motion.p 
+                <motion.p
                     className="hero__location"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -55,7 +63,7 @@ export const HeroSection: React.FC = () => {
                     Aguascalientes, Ags.
                 </motion.p>
 
-                <motion.div 
+                <motion.div
                     className="hero__date-container"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
