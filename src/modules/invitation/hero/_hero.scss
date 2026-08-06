@@ -16,8 +16,14 @@
         z-index: 1;
         filter: brightness(1.15) contrast(1.1) saturate(0.95);
 
-        &::-webkit-media-controls-start-play-button,
-        &::-webkit-media-controls-play-button {
+        &::-webkit-media-controls {
+            display: none !important;
+        }
+        &::-webkit-media-controls-start-playback-button {
+            display: none !important;
+            -webkit-appearance: none;
+        }
+        &::-webkit-media-controls-overlay-play-button {
             display: none !important;
             -webkit-appearance: none;
         }
