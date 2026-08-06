@@ -78,19 +78,15 @@
           "event": "Cena (3 tiempos)"
         },
         {
-          "time": "23:30 HRS",
-          "event": "Brindis de graduados"
+          "time": "23:00 HRS",
+          "event": "Último pase de lista y Brindis de graduados"
         },
         {
-          "time": "00:00 HRS",
-          "event": "Se abre la pista"
+          "time": "23:15 HRS",
+          "event": "Apertura de Pista"
         },
         {
-          "time": "00:30 HRS",
-          "event": "Camara fotográfica 360"
-        },
-        {
-          "time": "02:00 HRS",
+          "time": "01:00 HRS",
           "event": "Música Banda"
         },
         {
