@@ -113,19 +113,22 @@
 
 .invitation-footer {
     width: 100%;
-    padding: 2.2rem 1.5rem 3rem;
+    padding: 2.5rem 1.5rem;
     background-color: vars.$color-1;
     text-align: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 0.8rem;
     position: relative;
     z-index: 2;
+    border-top: 1px solid rgba(#ffffff, 0.08);
 
     &__text {
         font-family: vars.$font-sans;
-        font-size: 0.88rem;
-        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.85rem;
+        color: rgba(#ffffff, 0.6);
         margin: 0;
         letter-spacing: 0.03em;
     }
@@ -134,11 +137,34 @@
         color: vars.$color-4-200;
         font-weight: 600;
         text-decoration: none;
-        transition: color 0.2s ease, text-decoration 0.2s ease;
+        transition: color 0.25s ease;
 
         &:hover {
             color: #ffffff;
             text-decoration: underline;
+        }
+    }
+
+    &__contact {
+        font-family: vars.$font-sans;
+        font-size: 0.92rem;
+        color: rgba(#ffffff, 0.85);
+        margin: 0;
+        letter-spacing: 0.02em;
+        line-height: 1.5;
+    }
+
+    &__contact-link {
+        color: vars.$color-4;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.25s ease, text-decoration 0.25s ease;
+        border-bottom: 1px dashed rgba(vars.$color-4, 0.4);
+        padding-bottom: 2px;
+
+        &:hover {
+            color: vars.$color-4-100;
+            border-bottom-color: vars.$color-4-100;
         }
     }
 }

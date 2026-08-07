@@ -106,13 +106,7 @@ export const FarewellSection: React.FC = () => {
             </section>
 
             <footer className="invitation-footer">
-                <motion.p
-                    className="invitation-footer__text"
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-5% 0px' }}
-                    transition={{ duration: 1.0, delay: 0.4, ease: FLUID_EASE }}
-                >
+                <p className="invitation-footer__text">
                     Hecho con amor por{' '}
                     <a
                         href="https://www.instagram.com/tuamigoinvitaciones/"
@@ -122,7 +116,21 @@ export const FarewellSection: React.FC = () => {
                     >
                         TuAmigoInvitaciones
                     </a>
-                </motion.p>
+                </p>
+                <p className="invitation-footer__contact">
+                    ¿Quieres una invitación como esta para tu próximo evento?{' '}
+                    <span style={{ display: 'inline-block' }}>
+                        Contáctanos al{' '}
+                        <a
+                            className="invitation-footer__contact-link"
+                            href="https://wa.me/524496548073"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            4496548073
+                        </a>
+                    </span>
+                </p>
             </footer>
         </>
     )
